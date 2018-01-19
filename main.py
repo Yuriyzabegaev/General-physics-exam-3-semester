@@ -7,6 +7,8 @@ from arrow3D import Arrow3D
 
 
 def get_angle(x, y):
+    if x == 0 and y == 0:
+        return 0
     return np.rad2deg(np.arccos(x/np.sqrt(x**2+y**2)))
 
 
@@ -100,8 +102,8 @@ def main():
     ax.set_xlabel("Oсь X")
     ax.set_ylabel("Oсь Y")
     ax.set_zlabel("Ocь Z")
-    arrowB = Arrow3D([0, Bx], [0, 0], [0, 0], mutation_scale=20, lw=1, arrowstyle="-|>", color="g")
-    arrowE = Arrow3D([0, Ex], [0, Ey], [0,0], mutation_scale=20, lw=1, arrowstyle="-|>", color="r")
+    arrowB = Arrow3D([0, 20*Bx], [0, 0], [0, 0], mutation_scale=20, lw=1, arrowstyle="-|>", color="g")
+    arrowE = Arrow3D([0, 4*Ex], [0, 4*Ey], [0,0], mutation_scale=20, lw=1, arrowstyle="-|>", color="r")
     ax.add_artist(arrowB)
     ax.add_artist(arrowE)
 
@@ -126,15 +128,6 @@ def main():
     line = ax.plot(x, y, z, color='b')
     anim_running = True
     ani = animation.FuncAnimation(fig, data, fargs=(t, line), interval=100)
-
-    plt.show()
-
-
-def quiver():
-    fig = plt.figure()
-    ax = fig.gca(projection='3d')
-    a = Arrow3D([0, 1], [0, 0], [0, 0], mutation_scale=20, lw=1, arrowstyle="-|>", color="k")
-    ax.add_artist(a)
 
     plt.show()
 
