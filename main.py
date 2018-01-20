@@ -90,6 +90,7 @@ def main():
         x = Vx0 * t + C1 * t ** 2
         y = C2 * np.cos(C3 * t) + C4 * np.sin(C3 * t)
         z = -C2 * np.sin(C3 * t) - C4 * np.cos(C3 * t) - C5 * t
+        print(x[0], y[0], z[0])
 
         line = ax.plot(x, y, z, color='b')
         return line
@@ -99,6 +100,7 @@ def main():
     Vx0, Vy0, Vz0, Ex, Ey, Bx = get_initial_values()
     fig = plt.figure()
     ax = fig.gca(projection='3d')
+
     ax.set_xlabel("Oсь X")
     ax.set_ylabel("Oсь Y")
     ax.set_zlabel("Ocь Z")
@@ -130,6 +132,13 @@ def main():
     ani = animation.FuncAnimation(fig, data, fargs=(t, line), interval=100)
 
     plt.show()
+
+
+def vanya():
+    fig = plt.figure()
+    ax = fig.gca(projection='3d')
+    t = np.linspace(0, 1, 2)
+
 
 
 if __name__ == '__main__':

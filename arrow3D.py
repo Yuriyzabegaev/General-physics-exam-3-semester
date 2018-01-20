@@ -13,3 +13,6 @@ class Arrow3D(FancyArrowPatch):
         xs, ys, zs = proj3d.proj_transform(xs3d, ys3d, zs3d, renderer.M)
         self.set_positions((xs[0], ys[0]), (xs[1], ys[1]))
         FancyArrowPatch.draw(self, renderer)
+
+
+# original implimentation: https://gist.github.com/jpwspicer/ea6d20e4d8c54e9daabbc1daabbdc027
